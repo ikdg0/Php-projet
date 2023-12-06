@@ -16,7 +16,20 @@
     <body>
          <header>
             <div class='navbar-collapse' id='navbarColor01'>
+
                 <ul class="" >
+                    {% if is_granted('ROLE_USER')%}
+                        <li>
+                            <a href="{{path('app_logout')}}">Deconnexion</a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="{{path('app_login')}}">Connexion</a>
+                        </li>
+                        <li>
+                            <a href="{{path('app_register')}}">Inscription</a>
+                        </li>
+                    {% endif %}
                     <li class="" >
                         <a class="nav-link" href="{{ path('app_marque') }}"> Marque</a>
                         
