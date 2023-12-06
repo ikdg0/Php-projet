@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {% endblock %}
+{% block body %}
+    <div class="container">
+        <h2>Modifier la vue  {{ form_label(form.nom) }}</h2>
+
+        <p>{{ form_widget(form.nom) }}<p>
+        <p>{{ form_widget(form.dateCreation) }}</p>
+        <p>{{ form_widget(form.logo) }}</p>
+        <p>{{ form_row(form.Submit) }}</p>
+        
+
+    </div>
+    
+{% endblock %}

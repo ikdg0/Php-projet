@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MarqueController!{% endblock %}
+
+{% block body %}
+    {% if marques is not empty%}
+    <div class="container">
+        <h1>Nos Marques</h1>
+        <a class="btn btn-primary" href="{{path('app_newMarque') }}">Ajouter une marque</a>
+        <table class="table table-hover ">
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Date de Création</th>
+                    <th scope="col">Logo</th>
+                    <th scope="col">Afficher </th>
+                    <th scope="col">Suppression </th>
+                </tr>
+            </thead>
+            
+            <body>
+                
+                {% for marque in marques %}
+                <tr class="table-primary">
+                    <td>{{marque.id}}</td>
+                    <td>{{marque.nom}}</td>
+                    <td>{{marque.dateCreation|date("d/m/y")}}</td>
+                    <td>{{marque.Logo}}</td>
+                    <td>
+                    <a href={{ path('afficher', {'id':marque.id}) }}>Afficher</a>
+                    </td>
+                    <td>
+                    <a href={{ path('delete_marque', {'id':marque.id}) }}>Supprimer</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                
+            </tbody>
+            {% else %}
+                <h4>Il n'ya pas de données</h4>
+            {% endif %}
+        </tables>
+    </div>
+{% endblock %}
